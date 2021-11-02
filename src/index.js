@@ -1,13 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import {Provider} from 'react-redux';
+import {configureStore, combineReducers} from '@reduxjs/toolkit';
+
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+
+// Importing Reducers
+import authReducer from "./Controllers/Redux/authSlice";
+import bugReducer from "./Controllers/Redux/bugSlice";
+import userReducer from "./Controllers/Redux/userSlice";
+
+// Redux configuration (Reducer, Store)
+const reducer = combineReducers({
+  auth:authReducer,
+  bug:bugReducer,
+  user:userReducer
+});
+
+const store = configureStore({
+  reducer
+});
+
+// 
+
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 
