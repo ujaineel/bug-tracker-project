@@ -1,7 +1,7 @@
 .loginBG{
     width: 100vw;
     height: 100vh;
-    background: url("../../images/bg.jpg");
+    background: url("../../../images/bg.jpg");
     background-size: cover;
     grid-column: 1/2;
     background-color: rgba(0, 0, 0, 0.623);

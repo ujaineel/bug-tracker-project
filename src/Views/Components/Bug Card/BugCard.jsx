@@ -1,6 +1,6 @@
 import React from 'react';
 import './BugCard.css';
-import priorityController from "../../Controllers/priorityController";
+import priorityController from "../../../Controllers/priorityController";
 
 export default (props) => {
 
@@ -15,7 +15,7 @@ export default (props) => {
         <div className='bug-card' onClick={Clicked} style={{color:color}}>
             <h2 className='name'>{name}</h2>
             <h4 className='priority'>{level}</h4>
-            <h5 className='version'>{version}</h5>
+            <h5 className='version'>Application Version : {version}</h5>
         </div>
     )
 }

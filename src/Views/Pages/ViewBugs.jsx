@@ -1,11 +1,16 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux';
 import {getBugs} from '../../Controllers/Redux/bugSlice';
-import BugCard from '../Bug Card/BugCard';
+import BugCard from '../Components/Bug Card/BugCard';
+import BugView from '../Components/Bug View/BugView';
 
 export default () => {
-    const dispatch = useDispatch();
+    const [DISPLAY_BUG, SET_DISPLAY_BUG] = useState({
+        name: "",
+        isDisplayed: false
+    });
 
+    const dispatch = useDispatch();
     const {bugs} = useSelector(state => state);
 
     useEffect(() => {
@@ -13,7 +18,10 @@ export default () => {
     }, [bugs.length < 1]);
 
     function bugClicked(name){
-
+        SET_DISPLAY_BUG({
+            isDisplayed: !DISPLAY_BUG.isDisplayed,
+            name: name            
+        });
     }
 
     return (
@@ -21,6 +29,7 @@ export default () => {
             {bugs.map((bug,key)=>{
                 return <BugCard key={key} bug={bug} clicked={bugClicked} />
             })}
+            {DISPLAY_BUG.isDisplayed && <BugView clicked={bugClicked} bug={bugs.filter((bug) => bug.name == DISPLAY_BUG.name)[0]} />}
         </div>
     )
 }
