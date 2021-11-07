@@ -4,6 +4,7 @@ import Login from "./Views/Pages/Login/Login";
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Sidebar from "./Views/Sidebar/Sidebar";
 import ViewBugPage from "./Views/Pages/ViewBugs";
+import CreateBug from "./Views/Components/Bug Create/bugForm";
 
 function App() {
   const {auth} = useSelector(state => state);
@@ -16,6 +17,7 @@ function App() {
           <Route path="/viewbugs">
             <ViewBugPage />
           </Route>
+          <Route path="/createbug"><div className="page-container"><CreateBug title="Create Bug" /></div></Route>
         </Switch>
       </>
     }
