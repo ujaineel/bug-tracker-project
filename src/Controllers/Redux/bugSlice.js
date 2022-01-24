@@ -6,7 +6,7 @@ const slice = createSlice({
     initialState:[],
     reducers:{
         getBugs:state => retrieveBugs(),
-        createBugs:(state, actions) => {
+        createBug:(state, actions) => {
             
         },
         updateBug:(state, actions) => {

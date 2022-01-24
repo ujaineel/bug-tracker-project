@@ -17,7 +17,7 @@ const slice = createSlice({
             state.admin = false;
         },
         createUser:(state, action)=>{
-            
+            // Persistent Database API call (Same with else)
         }
     }
 });

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import {Provider} from 'react-redux';
-import {configureStore, combineReducers} from '@reduxjs/toolkit';
+import {configureStore, combineReducers, getDefaultMiddleware} from '@reduxjs/toolkit';
 
 import App from './App';
 
@@ -19,8 +19,12 @@ const reducer = combineReducers({
 });
 
 const store = configureStore({
-  reducer
-});
+  reducer,
+  middleware: getDefaultMiddleware => 
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
+  });
 
 // 
 

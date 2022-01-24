@@ -16,13 +16,13 @@ export default () => {
         <div className="sidebar">
             <Link className="nav-link" to="/">
                 <h1 className="brand">Bug-Tracker</h1>
+            </Link>
                 <ul>
                     <li><Link to="/" className="nav-link">Dashboard</Link></li>
                     <li><Link to="/viewbugs" className="nav-link">View Bugs</Link></li>                    
                     {auth.admin && <li><Link to="/createbug" className="nav-link">Create Bug</Link></li>}
                 </ul>
                 <button className="nav-link logout" onClick={SignOut}>Logout</button>
-            </Link>
         </div>
     )
 }

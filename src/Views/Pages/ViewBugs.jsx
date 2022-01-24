@@ -5,7 +5,7 @@ import BugCard from '../Components/Bug Card/BugCard';
 import BugView from '../Components/Bug View/BugView';
 
 export default () => {
-    const [DISPLAY_BUG, SET_DISPLAY_BUG] = useState({
+    const [displayBug, setDisplayBug] = useState({
         name: "",
         isDisplayed: false
     });
@@ -18,8 +18,8 @@ export default () => {
     }, [bugs.length < 1]);
 
     function bugClicked(name){
-        SET_DISPLAY_BUG({
-            isDisplayed: !DISPLAY_BUG.isDisplayed,
+        setDisplayBug({
+            isDisplayed: !displayBug.isDisplayed,
             name: name            
         });
     }
@@ -29,7 +29,7 @@ export default () => {
             {bugs.map((bug,key)=>{
                 return <BugCard key={key} bug={bug} clicked={bugClicked} />
             })}
-            {DISPLAY_BUG.isDisplayed && <BugView clicked={bugClicked} bug={bugs.filter((bug) => bug.name == DISPLAY_BUG.name)[0]} />}
+            {displayBug.isDisplayed && <BugView clicked={bugClicked} bug={bugs.filter((bug) => bug.name == displayBug.name)[0]} />}
         </div>
     )
 }
